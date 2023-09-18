@@ -2,36 +2,62 @@ package com.example.imagesearchapp.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import androidx.viewpager2.widget.ViewPager2
+import com.example.imagesearchapp.R
 import com.example.imagesearchapp.databinding.ActivityMainBinding
 import com.example.imagesearchapp.ui.adapter.ViewPagerAdapter
-import com.google.android.material.tabs.TabLayoutMediator
 
 // TabLayout , ViewPager2 연동
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding : ActivityMainBinding
-    private val tabTitleArray:Array<String> = arrayOf(
-        "검색 결과",
-        "내 보관함"
-    )
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        //viewBinding
         binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        val view = binding.root
+        setContentView(view)
 
-        // viewpager,tablayout 참조
-        val viewPager = binding.viewpager
-        val tabLayout = binding.tablayout
+        initViewPager()
+        initNavigation()
 
-        // viewpager의 adapter 설정
-        viewPager.adapter = ViewPagerAdapter(supportFragmentManager, lifecycle)
+    }
 
-        // tablayout - viewpager 연결 , tabitem 메뉴명 설정
-        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
-            tab.text = tabTitleArray[position]
-        }.attach()
+    private fun initViewPager() {
+        val viewPager = binding.viewPager
+        val viewPagerAdapter = ViewPagerAdapter(supportFragmentManager,lifecycle)
+
+        //page에 adapter 연결
+        viewPager.adapter = viewPagerAdapter
+
+        //ViewPager 로 슬라이드 시, BottomNavigation 도 페이지 활성화
+        viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                binding.bottomNavigation.menu.getItem(position).isChecked = true
+            }
+        })
+
+    }
+
+//     앱의 네비게이션 로직을 초기화하고 항목을 클릭했을 때, 해당 프래그먼트로 이동
+    private fun initNavigation() {
+        binding.bottomNavigation.setOnClickListener {
+            when (it.ItemId) { ////////////////////////////////////////////////////////////클릭된 아이템의 식별자 나타냄
+                R.id.search -> {
+                    binding.viewPager.currentItem = 0
+                    true
+                }
+
+                R.id.storage -> {
+                    binding.viewPager.currentItem = 1
+                    true
+                }
+                else -> false
+            }
+        }
     }
 }
