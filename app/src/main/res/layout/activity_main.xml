@@ -16,13 +16,11 @@
         app:layout_constraintStart_toStartOf="parent" >
 
         <com.google.android.material.tabs.TabItem
-            android:id="@+id/search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="검색 결과" />
 
         <com.google.android.material.tabs.TabItem
-            android:id="@+id/storage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="내 보관함"/>
