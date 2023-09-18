@@ -23,3 +23,5 @@ class ViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
         return SecondFragment()
     }
 }
+
+//어떤 Tab을 눌렀을 때, 어떤 Fragment가 생성되어야 하는지 구체적인 내용 구현
