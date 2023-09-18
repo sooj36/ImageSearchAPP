@@ -45,9 +45,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     // 앱의 네비게이션 로직을 초기화하고 항목을 클릭했을 때, 해당 프래그먼트로 이동 (initNavigation)
+    //BottomNavigation의 선택된 메뉴의 리스너를 설정 (OnNavigationItemSelected)(권장)
+    private fun initNavigation()  {
 
-    //BottomNavigation의 선택된 메뉴의 리스너를 설정 (OnNavigationItemSelected)
-    private fun initNavigation() {
         binding.bottomNavigation.setOnItemSelectedListener {
             when (it.itemId) { ////////////////////////////////////////////////////////////클릭된 아이템의 식별자 나타냄
             R.id.search -> {

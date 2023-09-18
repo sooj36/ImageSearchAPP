@@ -18,7 +18,7 @@ import com.example.imagesearchapp.databinding.FragmentFirstBinding
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
-        ): View? {
+        ): View {
             binding = FragmentFirstBinding.inflate(inflater, container, false)
             return binding.root
         }
