@@ -2,6 +2,7 @@ package com.example.imagesearchapp.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.viewpager2.widget.ViewPager2
 import com.example.imagesearchapp.R
 import com.example.imagesearchapp.databinding.ActivityMainBinding
@@ -28,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initViewPager() {
         val viewPager = binding.viewPager
-        val viewPagerAdapter = ViewPagerAdapter(supportFragmentManager,lifecycle)
+        val viewPagerAdapter = ViewPagerAdapter(supportFragmentManager, lifecycle)
 
         //page에 adapter 연결
         viewPager.adapter = viewPagerAdapter
@@ -43,21 +44,24 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-//     앱의 네비게이션 로직을 초기화하고 항목을 클릭했을 때, 해당 프래그먼트로 이동
-    private fun initNavigation() {
-        binding.bottomNavigation.setOnClickListener {
-            when (it.ItemId) { ////////////////////////////////////////////////////////////클릭된 아이템의 식별자 나타냄
-                R.id.search -> {
-                    binding.viewPager.currentItem = 0
-                    true
-                }
+    // 앱의 네비게이션 로직을 초기화하고 항목을 클릭했을 때, 해당 프래그먼트로 이동 (initNavigation)
 
-                R.id.storage -> {
-                    binding.viewPager.currentItem = 1
-                    true
-                }
-                else -> false
+    //BottomNavigation의 선택된 메뉴의 리스너를 설정 (OnNavigationItemSelected)
+    private fun initNavigation() {
+        binding.bottomNavigation.setOnItemSelectedListener {
+            when (it.itemId) { ////////////////////////////////////////////////////////////클릭된 아이템의 식별자 나타냄
+            R.id.search -> {
+                binding.viewPager.currentItem = 0
+                true
             }
+
+            R.id.storage -> {
+                binding.viewPager.currentItem = 1
+                true
+            }
+
+            else -> false
         }
     }
+}
 }
