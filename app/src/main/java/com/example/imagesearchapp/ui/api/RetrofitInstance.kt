@@ -2,8 +2,6 @@ package com.example.imagesearchapp.ui.api
 
 
 import com.example.imagesearchapp.ui.config.Constants.Companion.BASE_URL
-import retrofit2.Response
-import retrofit2.Retrofit.*
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
