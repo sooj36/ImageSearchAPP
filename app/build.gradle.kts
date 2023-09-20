@@ -62,6 +62,14 @@ dependencies {
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
+    // ViewModel
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0")
+
+    implementation ("com.github.skydoves:powerspinner:1.2.7")
+
+// fragment 관련 확장함수
+    implementation("androidx.fragment:fragment-ktx:1.6.1")
+
 
 
 }
