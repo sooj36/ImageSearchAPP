@@ -32,7 +32,7 @@ class FirstFragment : Fragment() {
 
         //버튼 찾아 변수 할당
         binding.searchBtn.setOnClickListener{
-            ///api 연결//
+            viewModel.searchImage()
         }
 
 
