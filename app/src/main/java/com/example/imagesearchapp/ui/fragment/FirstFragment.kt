@@ -1,6 +1,7 @@
 package com.example.imagesearchapp.ui.fragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,8 +15,9 @@ import com.example.imagesearchapp.ui.viewModel.MainViewModel
 
 class FirstFragment : Fragment() {
     private lateinit var binding: FragmentFirstBinding
+
     // Main.kt 의 viewmodel 사용
-    private val viewModel : MainViewModel by activityViewModels()
+    private val viewModel: MainViewModel by activityViewModels()
     // 데이터를 가지고 있음
 
     override fun onCreateView(
@@ -29,15 +31,15 @@ class FirstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        Log.d("sooj", "onViewCreated()")
 
         //버튼 찾아 변수 할당
-        binding.searchBtn.setOnClickListener{
-            viewModel.searchImage()
-        }
-
-
-
+        binding.searchBtn.setOnClickListener {
+            val query = binding.searchBar.text.toString()
+            viewModel.searchImage(query)
+            Log.d("sooj", "click")
         }
     }
+}
 
 

@@ -1,5 +1,6 @@
 package com.example.imagesearchapp.ui.viewModel
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -12,12 +13,13 @@ class MainViewModel(private val repository: Repository) : ViewModel() {
 
     val myCustomPosts : MutableLiveData<Response<ImageSearchResponse>> = MutableLiveData()
 
-    fun searchImage(){
+
+    // 검색어를 매개변수로 받도록
+    fun searchImage(query: String){
         viewModelScope.launch {
-            val response = repository.searchImage("페이커","accuracy")
+            val response = repository.searchImage(query,"relevance")
             myCustomPosts.value = response
+            Log.d("sooj", "searchImage")
         }
     }
-
-
 }
