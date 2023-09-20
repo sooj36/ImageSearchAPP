@@ -6,12 +6,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.fragment.app.activityViewModels
 import com.example.imagesearchapp.R
 import com.example.imagesearchapp.databinding.FragmentFirstBinding
+import com.example.imagesearchapp.ui.viewModel.MainViewModel
 
 
 class FirstFragment : Fragment() {
     private lateinit var binding: FragmentFirstBinding
+    // Main.kt 의 viewmodel 사용
+    private val viewModel : MainViewModel by activityViewModels()
+    // 데이터를 가지고 있음
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,15 +31,13 @@ class FirstFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         //버튼 찾아 변수 할당
-        val SearchButton = view.findViewById<Button>(R.id.search_btn)
+        binding.searchBtn.setOnClickListener{
+            ///api 연결//
+        }
 
-        //버큰 클릭 리스너 설정
-        SearchButton.setOnClickListener {
-            // 여기에 검색 버튼을 클릭 시, 할 동작 구현
-            // ex, api 호출 등 처리
+
 
         }
     }
 
 
-}

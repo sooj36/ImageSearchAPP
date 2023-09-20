@@ -2,16 +2,32 @@ package com.example.imagesearchapp.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.widget.ViewPager2
 import com.example.imagesearchapp.R
 import com.example.imagesearchapp.databinding.ActivityMainBinding
 import com.example.imagesearchapp.ui.adapter.ViewPagerAdapter
+import com.example.imagesearchapp.ui.repository.Repository
+import com.example.imagesearchapp.ui.viewModel.MainViewModel
+import com.example.imagesearchapp.ui.viewModel.MainViewModelFactory
 
 // TabLayout , ViewPager2 연동
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+
+    val repository = Repository()
+    val viewModelFactory = MainViewModelFactory(repository)
+
+
+    val viewModel by lazy {
+        ViewModelProvider(
+            this,
+            viewModelFactory
+        ).get(MainViewModel::class.java)
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
