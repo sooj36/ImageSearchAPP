@@ -11,7 +11,9 @@ import retrofit2.Response
 
 class MainViewModel(private val repository: Repository) : ViewModel() {
 
+    // LiveData == 데이터 변경 관찰 UI에 바인딩
     val myCustomPosts : MutableLiveData<Response<ImageSearchResponse>> = MutableLiveData()
+
 
 
     // 검색어를 매개변수로 받도록

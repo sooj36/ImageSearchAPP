@@ -40,6 +40,8 @@ class MainActivity : AppCompatActivity() {
         initViewPager()
         initNavigation()
 
+
+
     }
 
     private fun initViewPager() {
