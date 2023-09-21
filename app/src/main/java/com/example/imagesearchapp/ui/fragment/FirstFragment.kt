@@ -54,18 +54,21 @@ class FirstFragment : Fragment() {
             Log.d("sooj", "click")
         }
 
-        binding.recyclerview1.layoutManager = LinearLayoutManager(context)
+        binding.recyclerview1.layoutManager = GridLayoutManager(context, 2)
+        Log.d("sooj", "layoutmanager")
 
         // floatingBtn 클릭시 최상단으로
         binding.btnToTop.setOnClickListener {
-            binding.recyclerview1.layoutManager = LinearLayoutManager(context)
+            binding.recyclerview1.layoutManager = GridLayoutManager(context, 2)
             binding.recyclerview1.smoothScrollToPosition(0)
+            Log.d("sooj", "click to top")
         }
         viewModel.searchResult.observe(viewLifecycleOwner) { images ->
             adapter.list.clear()
             images ?: return@observe
             adapter.list.addAll(images)
             adapter.notifyDataSetChanged()
+            Log.d("sooj", "observe")
         }
     }
 

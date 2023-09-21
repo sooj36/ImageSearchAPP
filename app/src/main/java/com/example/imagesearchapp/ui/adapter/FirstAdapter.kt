@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.imagesearchapp.R
 import com.example.imagesearchapp.databinding.FragmentFirstBinding
+import com.example.imagesearchapp.databinding.ItemBinding
 import com.example.imagesearchapp.ui.model.KakaoImage
 import org.w3c.dom.Text
 
@@ -50,6 +51,7 @@ class FirstAdapter : RecyclerView.Adapter<FirstAdapter.ViewHolder>() {
 
         return ViewHolder(view)
     }
+
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         holder.sitename.text = list[position].sitename
