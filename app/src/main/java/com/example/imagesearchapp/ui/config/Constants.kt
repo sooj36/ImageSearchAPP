@@ -7,11 +7,11 @@ import retrofit2.Retrofit
 class Constants {
 
     companion object {
-        const val BASE_URL ="https://dapi.kakao.com/v2/search/image"
+        const val BASE_URL ="https://dapi.kakao.com/v2/search/image/"
 
         private var INSTANCE: Retrofit? = null
 
-        const val  AUTH_HEADER = "4fef37c0901dbba01264324ed236e61c"
+        const val  AUTH_HEADER = "KakaoAK 4fef37c0901dbba01264324ed236e61c"
 
         const val EMPTY_RESULT = "EMPTY_RESULT"
     }

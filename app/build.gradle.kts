@@ -71,6 +71,9 @@ dependencies {
 // fragment 관련 확장함수
     implementation("androidx.fragment:fragment-ktx:1.6.1")
 
+    implementation ("com.github.bumptech.glide:glide:4.11.0")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.11.0")
+
 
 
 }

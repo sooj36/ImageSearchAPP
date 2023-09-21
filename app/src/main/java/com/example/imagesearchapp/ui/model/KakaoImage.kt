@@ -8,9 +8,9 @@ data class KakaoImage(
     @SerializedName("display_sitename")
     val sitename : String,
     val collection : String,
-    val image_url : String
+    val image_url : String,
+    val datatime : String
 )
 
-//화면에 띄울 것 / sitename, 날짜,시간/
 
 

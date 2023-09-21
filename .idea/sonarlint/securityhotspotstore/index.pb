@@ -33,3 +33,7 @@ x
 Happ/src/main/java/com/example/imagesearchapp/ui/repository/Repository.kt,9\7\97d1c61351ed7ba0e189403638ce3f9281c5feac
 s
 Capp/src/main/java/com/example/imagesearchapp/ui/config/Constants.kt,1\e\1e872730a49948506f16ab685165f4245c86d948
+x
+Happ/src/main/java/com/example/imagesearchapp/ui/adapter/SecondAdapter.kt,f\f\ff1702da755bae4a582e123a61a4995e9f6e73d0
+w
+Gapp/src/main/java/com/example/imagesearchapp/ui/adapter/FirstAdapter.kt,7\c\7c6ece8715007f09b044986890613fe6f8f9d05e
