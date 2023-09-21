@@ -2,24 +2,17 @@ package com.example.imagesearchapp.ui.fragment
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.GridLayout
-import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModel
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.imagesearchapp.databinding.FragmentFirstBinding
 import com.example.imagesearchapp.ui.adapter.FirstAdapter
-import com.example.imagesearchapp.ui.model.KakaoImage
 import com.example.imagesearchapp.ui.repository.Repository
 import com.example.imagesearchapp.ui.viewModel.MainViewModel
 import com.example.imagesearchapp.ui.viewModel.MainViewModelFactory
-import okhttp3.internal.notify
 
 
 class FirstFragment : Fragment() {
@@ -57,6 +50,7 @@ class FirstFragment : Fragment() {
         binding.recyclerview1.layoutManager = GridLayoutManager(context, 2)
         Log.d("sooj", "layoutmanager")
 
+
         // floatingBtn 클릭시 최상단으로
         binding.btnToTop.setOnClickListener {
             binding.recyclerview1.layoutManager = GridLayoutManager(context, 2)
@@ -70,6 +64,9 @@ class FirstFragment : Fragment() {
             adapter.notifyDataSetChanged()
             Log.d("sooj", "observe")
         }
+
+        binding.recyclerview1.adapter = adapter
+        Log.d("sooj", "recyclerview에ㅓ 어댑터 연결")
     }
 
 }
