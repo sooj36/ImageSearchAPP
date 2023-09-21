@@ -12,6 +12,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.imagesearchapp.databinding.FragmentFirstBinding
 import com.example.imagesearchapp.ui.adapter.FirstAdapter
 import com.example.imagesearchapp.ui.model.KakaoImage
@@ -53,9 +54,11 @@ class FirstFragment : Fragment() {
             Log.d("sooj", "click")
         }
 
+        binding.recyclerview1.layoutManager = LinearLayoutManager(context)
+
         // floatingBtn 클릭시 최상단으로
         binding.btnToTop.setOnClickListener {
-            binding.recyclerview1.layoutManager = GridLayoutManager(context, 2)
+            binding.recyclerview1.layoutManager = LinearLayoutManager(context)
             binding.recyclerview1.smoothScrollToPosition(0)
         }
         viewModel.searchResult.observe(viewLifecycleOwner) { images ->

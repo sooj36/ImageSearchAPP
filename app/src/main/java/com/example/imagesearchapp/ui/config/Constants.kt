@@ -7,7 +7,7 @@ import retrofit2.Retrofit
 class Constants {
 
     companion object {
-        const val BASE_URL ="https://dapi.kakao.com/v2/search/image/"
+        const val BASE_URL ="https://dapi.kakao.com"
 
         private var INSTANCE: Retrofit? = null
 
