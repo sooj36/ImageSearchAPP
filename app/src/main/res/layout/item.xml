@@ -2,21 +2,26 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:focusable="true">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:paddingBottom="30dp"
+        android:paddingEnd="10dp"
+        >
 
         <ImageView
             android:id="@+id/item_image_url"
-            android:layout_width="175dp"
+            android:layout_width="wrap_content"
             android:layout_height="162dp"
+            android:layout_gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -27,16 +32,19 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            >
 
             <TextView
                 android:id="@+id/item_collection"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 android:hint="[Image] "
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/item_image_url" />
+                app:layout_constraintTop_toBottomOf="@id/item_image_url"
+                android:textStyle="bold"
+                android:textSize="15sp"/>
 
             <TextView
                 android:id="@+id/item_sitename"
@@ -45,7 +53,9 @@
                 android:layout_gravity="center"
                 android:hint="네이버 블로그"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/item_image_url" />
+                app:layout_constraintTop_toBottomOf="@id/item_image_url"
+                android:textStyle="bold"
+                android:textSize="15sp"/>
 
 
         </LinearLayout>
@@ -55,10 +65,11 @@
             android:id="@+id/datetime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:hint="YYYY-MM-DD 00:00:00"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/item_sitename" />
+            app:layout_constraintTop_toBottomOf="@id/item_sitename"
+            android:textSize="15sp"
+            android:layout_gravity="center_horizontal"/>
 
     </LinearLayout>
 
