@@ -8,6 +8,7 @@
     android:focusable="true">
 
     <LinearLayout
+        android:id="@+id/linearlayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -71,7 +72,15 @@
             android:textSize="15sp"
             android:layout_gravity="center_horizontal"/>
 
+
     </LinearLayout>
 
-
+    <ImageView
+        android:id="@+id/heart"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:visibility="gone"
+        android:src="@drawable/item_heart"
+        app:layout_constraintEnd_toEndOf="@id/linearlayout"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

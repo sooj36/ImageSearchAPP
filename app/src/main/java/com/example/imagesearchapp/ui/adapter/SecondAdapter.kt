@@ -1,5 +1,8 @@
 package com.example.imagesearchapp.ui.adapter
 
+import android.content.Context
+import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -9,9 +12,10 @@ import com.bumptech.glide.Glide
 import com.example.imagesearchapp.R
 import com.example.imagesearchapp.ui.model.KakaoImage
 
-class SecondAdapter :  RecyclerView.Adapter<SecondAdapter.viewHolder>() {
+class SecondAdapter(var list: Context) :  RecyclerView.Adapter<SecondAdapter.viewHolder>() {
 
-    var list = ArrayList<KakaoImage>()
+    // 북마크 리스트
+    var bookmark = ArrayList<KakaoImage>()
 
     inner class viewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val sitename: TextView = view.findViewById(R.id.item_sitename)
@@ -21,23 +25,24 @@ class SecondAdapter :  RecyclerView.Adapter<SecondAdapter.viewHolder>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): viewHolder {
-        TODO("Not yet implemented")
-    }
-
-    override fun onBindViewHolder(holder: viewHolder, position: Int) {
-        val list = list[position]
-        holder.apply {
-            sitename.text = list.sitename
-            collection.text = list.collection
-//            Glide.with(holder.image_url.context)
-//                .load(list[position].image_url)
-//                .into(holder.image_url)
-            datetime.text = list.datetime
-        }
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item, parent, false)
+        return viewHolder(view)
     }
 
     override fun getItemCount(): Int {
-        return list.size
+        return bookmark.size
     }
+
+    override fun onBindViewHolder(holder: viewHolder, position: Int) {
+        holder.sitename.text = bookmark[position].sitename
+        holder.collection.text = bookmark[position].collection
+        holder.datetime.text = bookmark[position].datetime
+        Log.d("sooj",bookmark[position].image_url)
+        Glide.with(holder.image_url.context)
+            .load(bookmark[position].image_url)
+            .into(holder.image_url)
+    }
+
+
 }
 
