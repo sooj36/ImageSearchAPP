@@ -10,7 +10,6 @@ import android.widget.Button
 import android.widget.GridLayout
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.imagesearchapp.R
 import com.example.imagesearchapp.databinding.FragmentFirstBinding
 import com.example.imagesearchapp.ui.viewModel.MainViewModel
 
