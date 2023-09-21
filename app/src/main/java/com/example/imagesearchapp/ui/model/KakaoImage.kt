@@ -9,7 +9,7 @@ data class KakaoImage(
     val sitename : String,
     val collection : String,
     val image_url : String,
-    val datatime : String
+    val datetime : String
 )
 
 

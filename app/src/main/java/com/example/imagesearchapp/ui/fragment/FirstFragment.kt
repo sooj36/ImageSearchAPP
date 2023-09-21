@@ -47,7 +47,7 @@ class FirstFragment : Fragment() {
             Log.d("sooj", "click")
         }
 
-        binding.recyclerview1.layoutManager = GridLayoutManager(context, 2)
+        binding.recyclerview1.layoutManager = GridLayoutManager(view.context, 2)
         Log.d("sooj", "layoutmanager")
 
 

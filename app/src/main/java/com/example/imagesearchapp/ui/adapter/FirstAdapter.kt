@@ -1,5 +1,6 @@
 package com.example.imagesearchapp.ui.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,31 +20,10 @@ class FirstAdapter : RecyclerView.Adapter<FirstAdapter.ViewHolder>() {
 
     // inner class 로 viewHolder 정리
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-
-        var sitename : TextView
-
-        init {
-            sitename = view.findViewById(R.id.item_sitename)
-        }
-
-        var collection : TextView
-
-        init {
-            collection = view.findViewById(R.id.item_collection)
-        }
-
-        var image_url : ImageView
-
-        init {
-            image_url = view.findViewById(R.id.item_image_url)
-        }
-
-        var datatime : TextView
-
-        init {
-            datatime = view.findViewById(R.id.item_datatime)
-        }
-
+        val sitename: TextView = view.findViewById(R.id.item_sitename)
+        val collection: TextView = view.findViewById(R.id.item_collection)
+        val image_url: ImageView = view.findViewById(R.id.item_image_url)
+        val datetime: TextView = view.findViewById(R.id.datetime)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -56,7 +36,8 @@ class FirstAdapter : RecyclerView.Adapter<FirstAdapter.ViewHolder>() {
 
         holder.sitename.text = list[position].sitename
         holder.collection.text = list[position].collection
-        holder.datatime.text = list[position].datatime
+        holder.datetime.text = list[position].datetime
+        Log.d("sooj",list[position].image_url)
         Glide.with(holder.image_url.context)
             .load(list[position].image_url)
             .into(holder.image_url)
