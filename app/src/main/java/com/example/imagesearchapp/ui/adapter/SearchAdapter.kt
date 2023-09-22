@@ -30,6 +30,7 @@ class SearchAdapter : RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
         val image_url: ImageView = view.findViewById(R.id.item_image_url)
         val datetime: TextView = view.findViewById(R.id.datetime)
         val heart : ImageView = view.findViewById(R.id.heart)
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -54,7 +55,7 @@ class SearchAdapter : RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
 
 
         // 클릭리스너 설정
-        holder.image_url.setOnClickListener {
+        holder.itemView.setOnClickListener {
             val item = list[position]
             listener?.onBookmarkClicked(kakaoImage = item)
 
@@ -66,48 +67,7 @@ class SearchAdapter : RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
                 holder.heart.isVisible = true
                 list[position].isFavorite = true
             }
-        }
-
-        holder.collection.setOnClickListener {
-            val item = list[position]
-            listener?.onBookmarkClicked(kakaoImage = item)
-
-            val isFavoriteList = mutableListOf<Int>()
-            if (list[position].isFavorite) {
-                holder.heart.isGone = true
-                list[position].isFavorite = false
-            } else {
-                holder.heart.isVisible = true
-                list[position].isFavorite = true
-            }
-        }
-
-        holder.datetime.setOnClickListener {
-            val item = list[position]
-            listener?.onBookmarkClicked(kakaoImage = item)
-
-            val isFavoriteList = mutableListOf<Int>()
-            if (list[position].isFavorite) {
-                holder.heart.isGone = true
-                list[position].isFavorite = false
-            } else {
-                holder.heart.isVisible = true
-                list[position].isFavorite = true
-            }
-        }
-
-        holder.sitename.setOnClickListener {
-            val item = list[position]
-            listener?.onBookmarkClicked(kakaoImage = item)
-
-            val isFavoriteList = mutableListOf<Int>()
-            if (list[position].isFavorite) {
-                holder.heart.isGone = true
-                list[position].isFavorite = false
-            } else {
-                holder.heart.isVisible = true
-                list[position].isFavorite = true
-            }
+            Log.d("sooj", "sitename")
         }
     }
 }
