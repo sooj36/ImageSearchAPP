@@ -1,6 +1,5 @@
 package com.example.imagesearchapp.ui.adapter
 
-import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +11,12 @@ import com.bumptech.glide.Glide
 import com.example.imagesearchapp.R
 import com.example.imagesearchapp.ui.model.KakaoImage
 
-class SecondAdapter(var list: Context) :  RecyclerView.Adapter<SecondAdapter.viewHolder>() {
+class SecondAdapter() :  RecyclerView.Adapter<SecondAdapter.viewHolder>() {
+
+    var listener: OnBookmarkClickListener? = null
+    interface OnBookmarkClickListener {
+        fun onBookmarkClicked(kakaoImage: KakaoImage)
+    }
 
     // 북마크 리스트
     var bookmark = ArrayList<KakaoImage>()

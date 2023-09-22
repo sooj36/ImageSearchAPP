@@ -14,6 +14,11 @@ import com.example.imagesearchapp.ui.model.KakaoImage
 
 class FirstAdapter : RecyclerView.Adapter<FirstAdapter.ViewHolder>() {
 
+    var listener: OnBookmarkClickListener? = null
+    interface OnBookmarkClickListener {
+        fun onBookmarkClicked(kakaoImage: KakaoImage)
+    }
+
     var list = ArrayList<KakaoImage>()
 
     // inner class 로 viewHolder 정리
@@ -35,15 +40,22 @@ class FirstAdapter : RecyclerView.Adapter<FirstAdapter.ViewHolder>() {
         holder.sitename.text = list[position].sitename
         holder.collection.text = list[position].collection
         holder.datetime.text = list[position].datetime
-        Log.d("sooj",list[position].image_url)
+        Log.d("sooj", list[position].image_url)
         Glide.with(holder.image_url.context)
             .load(list[position].image_url)
             .into(holder.image_url)
 
+        // 클릭리스너 설정
+        holder.image_url.setOnClickListener {
+            val item = list[position]
+            listener?.onBookmarkClicked(kakaoImage = item)
+        }
     }
+
 
     override fun getItemCount(): Int {
         return list.size
+        Log.d("sooj", "size")
     }
 
 }
