@@ -67,5 +67,47 @@ class SearchAdapter : RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
                 list[position].isFavorite = true
             }
         }
+
+        holder.collection.setOnClickListener {
+            val item = list[position]
+            listener?.onBookmarkClicked(kakaoImage = item)
+
+            val isFavoriteList = mutableListOf<Int>()
+            if (list[position].isFavorite) {
+                holder.heart.isGone = true
+                list[position].isFavorite = false
+            } else {
+                holder.heart.isVisible = true
+                list[position].isFavorite = true
+            }
+        }
+
+        holder.datetime.setOnClickListener {
+            val item = list[position]
+            listener?.onBookmarkClicked(kakaoImage = item)
+
+            val isFavoriteList = mutableListOf<Int>()
+            if (list[position].isFavorite) {
+                holder.heart.isGone = true
+                list[position].isFavorite = false
+            } else {
+                holder.heart.isVisible = true
+                list[position].isFavorite = true
+            }
+        }
+
+        holder.sitename.setOnClickListener {
+            val item = list[position]
+            listener?.onBookmarkClicked(kakaoImage = item)
+
+            val isFavoriteList = mutableListOf<Int>()
+            if (list[position].isFavorite) {
+                holder.heart.isGone = true
+                list[position].isFavorite = false
+            } else {
+                holder.heart.isVisible = true
+                list[position].isFavorite = true
+            }
+        }
     }
 }
