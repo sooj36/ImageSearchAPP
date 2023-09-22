@@ -40,6 +40,8 @@ class SecondFragment : Fragment(),SecondAdapter.OnBookmarkClickListener {
         adapter = SecondAdapter()
         adapter.listener = this
 
+        binding.recyclerview2.adapter = adapter
+
         binding.recyclerview2.layoutManager = GridLayoutManager(view.context, 2)
         Log.d("sooj", "recyclerview 2")
 

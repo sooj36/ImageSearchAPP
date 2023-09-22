@@ -45,7 +45,14 @@ class SecondAdapter() :  RecyclerView.Adapter<SecondAdapter.viewHolder>() {
         Glide.with(holder.image_url.context)
             .load(bookmark[position].image_url)
             .into(holder.image_url)
+
+        // 클릭리스너 설정
+        holder.image_url.setOnClickListener {
+            val item = bookmark[position]
+            listener?.onBookmarkClicked(kakaoImage = item)
+        }
     }
+
 
 
 }

@@ -49,6 +49,8 @@ class FirstFragment : Fragment(), FirstAdapter.OnBookmarkClickListener {
         binding.searchBtn.setOnClickListener {
             val query = binding.searchBar.text.toString()
             viewModel.searchImage(query)
+
+            //함수구현해서 shared해보기
             Log.d("sooj", "click")
         }
 
@@ -80,6 +82,8 @@ class FirstFragment : Fragment(), FirstAdapter.OnBookmarkClickListener {
         bookMarkViewModel.addBookMark(kakaoImage)
         Toast.makeText(context , "북마크가 추가되었습니다", Toast.LENGTH_LONG).show()
     }
+
+
 
 }
 
