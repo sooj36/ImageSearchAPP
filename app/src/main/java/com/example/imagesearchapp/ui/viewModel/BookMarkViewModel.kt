@@ -40,7 +40,6 @@ class BookMarkViewModel() : ViewModel() {
         _bookMark.value = removeList
     }
 
-    // sharedprefererece
     override fun onCleared() {
         super.onCleared()
     }
