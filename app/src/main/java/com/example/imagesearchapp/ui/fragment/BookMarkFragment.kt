@@ -10,18 +10,16 @@ import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.imagesearchapp.databinding.FragmentSecondBinding
-import com.example.imagesearchapp.ui.adapter.SecondAdapter
+import com.example.imagesearchapp.ui.adapter.BookMarkAdapter
 import com.example.imagesearchapp.ui.model.KakaoImage
 import com.example.imagesearchapp.ui.viewModel.BookMarkViewModel
-import com.example.imagesearchapp.ui.viewModel.MainViewModel
 
 
-
-class SecondFragment : Fragment(),SecondAdapter.OnBookmarkClickListener {
+class BookMarkFragment : Fragment(),BookMarkAdapter.OnBookmarkClickListener {
 
     // 바인딩 객체를 null 허용으로
 //    private lateinit var binding: FragmentSecondBinding? = null
-    private lateinit var adapter: SecondAdapter
+    private lateinit var adapter: BookMarkAdapter
     private lateinit var binding: FragmentSecondBinding
 
 
@@ -37,8 +35,10 @@ class SecondFragment : Fragment(),SecondAdapter.OnBookmarkClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapter = SecondAdapter()
+        adapter = BookMarkAdapter()
         adapter.listener = this
+
+        binding.recyclerview2.adapter = adapter
 
         binding.recyclerview2.layoutManager = GridLayoutManager(view.context, 2)
         Log.d("sooj", "recyclerview 2")

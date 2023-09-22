@@ -17,6 +17,17 @@ class BookMarkViewModel() : ViewModel() {
     val bookMark : LiveData<List<KakaoImage>?> get() = _bookMark
 
 
+//    init {
+//        getbookMarkSharedPreferences() {
+//            _bookMark.value
+//        }
+//    }
+//
+//
+//    fun getbookMarkSharedPreferences() {
+//        //shared 로직
+//    }
+
     fun addBookMark(item: KakaoImage) {
         val currentList = _bookMark.value?.toMutableList() ?: mutableListOf()
         currentList.add(item)
@@ -27,5 +38,9 @@ class BookMarkViewModel() : ViewModel() {
         val removeList = _bookMark.value?.toMutableList() ?: mutableListOf()
         removeList.remove(item)
         _bookMark.value = removeList
+    }
+
+    override fun onCleared() {
+        super.onCleared()
     }
 }

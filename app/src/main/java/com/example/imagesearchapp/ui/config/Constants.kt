@@ -14,6 +14,9 @@ class Constants {
         const val  AUTH_HEADER = "KakaoAK 4fef37c0901dbba01264324ed236e61c"
 
         const val EMPTY_RESULT = "EMPTY_RESULT"
+
+        // 앱의 Shared Preferences 파일 이름입니다.
+        const val PREFS_NAME = "sooj"
     }
 
 }

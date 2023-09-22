@@ -4,8 +4,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.imagesearchapp.ui.fragment.FirstFragment
-import com.example.imagesearchapp.ui.fragment.SecondFragment
+import com.example.imagesearchapp.ui.fragment.SearchFragment
+import com.example.imagesearchapp.ui.fragment.BookMarkFragment
 
 private const val NUM_TABS = 2
 class ViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
@@ -17,10 +17,10 @@ class ViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
 
     override fun createFragment(position: Int): Fragment {
         when (position) {
-            0 -> return FirstFragment()
-            1 -> return SecondFragment()
+            0 -> return SearchFragment()
+            1 -> return BookMarkFragment()
         }
-        return SecondFragment()
+        return BookMarkFragment()
     }
 }
 

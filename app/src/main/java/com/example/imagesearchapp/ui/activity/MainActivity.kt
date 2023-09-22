@@ -8,8 +8,8 @@ import com.example.imagesearchapp.R
 import com.example.imagesearchapp.databinding.ActivityMainBinding
 import com.example.imagesearchapp.ui.adapter.ViewPagerAdapter
 import com.example.imagesearchapp.ui.repository.Repository
-import com.example.imagesearchapp.ui.viewModel.MainViewModel
-import com.example.imagesearchapp.ui.viewModel.MainViewModelFactory
+import com.example.imagesearchapp.ui.viewModel.SearchViewModel
+import com.example.imagesearchapp.ui.viewModel.SearchViewModelFactory
 
 // TabLayout , ViewPager2 연동
 
@@ -18,14 +18,14 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     val repository = Repository()
-    val viewModelFactory = MainViewModelFactory(repository)
+    val viewModelFactory = SearchViewModelFactory(repository)
 
 
     val viewModel by lazy {
         ViewModelProvider(
             this,
             viewModelFactory
-        ).get(MainViewModel::class.java)
+        ).get(SearchViewModel::class.java)
     }
 
 

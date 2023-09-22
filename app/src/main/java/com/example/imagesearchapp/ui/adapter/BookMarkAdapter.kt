@@ -6,12 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.imagesearchapp.R
 import com.example.imagesearchapp.ui.model.KakaoImage
 
-class SecondAdapter() :  RecyclerView.Adapter<SecondAdapter.viewHolder>() {
+class BookMarkAdapter() :  RecyclerView.Adapter<BookMarkAdapter.viewHolder>() {
 
     var listener: OnBookmarkClickListener? = null
     interface OnBookmarkClickListener {
@@ -26,6 +27,7 @@ class SecondAdapter() :  RecyclerView.Adapter<SecondAdapter.viewHolder>() {
         val collection: TextView = view.findViewById(R.id.item_collection)
         val image_url: ImageView = view.findViewById(R.id.item_image_url)
         val datetime: TextView = view.findViewById(R.id.datetime)
+        val heart : ImageView = view.findViewById(R.id.heart)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): viewHolder {
@@ -45,7 +47,19 @@ class SecondAdapter() :  RecyclerView.Adapter<SecondAdapter.viewHolder>() {
         Glide.with(holder.image_url.context)
             .load(bookmark[position].image_url)
             .into(holder.image_url)
+
+        // 클릭리스너 설정
+        holder.image_url.setOnClickListener {
+            val item = bookmark[position]
+            listener?.onBookmarkClicked(kakaoImage = item)
+        }
+
+        //북마크에서는 항상 하트 같이 있음
+        holder.heart.isVisible = true
+
+
     }
+
 
 
 }
