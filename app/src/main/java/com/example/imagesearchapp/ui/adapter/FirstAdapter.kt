@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.imagesearchapp.R
@@ -27,12 +29,17 @@ class FirstAdapter : RecyclerView.Adapter<FirstAdapter.ViewHolder>() {
         val collection: TextView = view.findViewById(R.id.item_collection)
         val image_url: ImageView = view.findViewById(R.id.item_image_url)
         val datetime: TextView = view.findViewById(R.id.datetime)
+        val heart : ImageView = view.findViewById(R.id.heart)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item, parent, false)
 
         return ViewHolder(view)
+    }
+
+    override fun getItemCount(): Int {
+        return list.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -45,32 +52,25 @@ class FirstAdapter : RecyclerView.Adapter<FirstAdapter.ViewHolder>() {
             .load(list[position].image_url)
             .into(holder.image_url)
 
+
         // 클릭리스너 설정
         holder.image_url.setOnClickListener {
             val item = list[position]
             listener?.onBookmarkClicked(kakaoImage = item)
+
+            val isFavoriteList = mutableListOf<Int>()
+            if (list[position].isFavorite) {
+                holder.heart.isGone = true
+                list[position].isFavorite = false
+            } else {
+                holder.heart.isVisible = true
+                list[position].isFavorite = true
+            }
         }
+
+
     }
 
 
-    override fun getItemCount(): Int {
-        return list.size
-        Log.d("sooj", "size")
-    }
 
-//    override fun onClick(view : View) {
-//        val position = adapterPosition.takeIf { it != RecyclerView.NO_POSITION } ?: return
-//        val item = list[position]
-//
-//        item.isFavorite = !item.isFavorite
-//
-//        if (item.isFavorite) {
-//            (mContext as MainActivity).addLikedItem(item)
-//        } else {
-//            (mContext as MainActivity).removeLikedItem(item)
-//        }
-//
-//        notifyItemChanged(position)
-//    }
-//    }
 }

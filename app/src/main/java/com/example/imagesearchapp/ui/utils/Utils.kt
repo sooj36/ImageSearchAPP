@@ -6,8 +6,13 @@ import com.example.imagesearchapp.ui.config.Constants.Companion.PREFS_NAME
 object Utils {
 
     // 마지막 검색어 가져옴 (Sharedpreferences)
-    fun getSaveSearch(context: Context) : String? {
+    fun getSaveSearch(context: Context): String? {
         val preferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
         return preferences.getString(PREFS_NAME, null)
+    }
+
+    fun setSaveSearch(context: Context, value : String) {
+        val preferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+        preferences.edit().putString(PREFS_NAME, value).apply()
     }
 }

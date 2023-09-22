@@ -15,8 +15,8 @@ class Constants {
 
         const val EMPTY_RESULT = "EMPTY_RESULT"
 
-        // 앱의 Shared Preferences 파일 이름입니다. // 수정예정
-        const val PREFS_NAME = "com.jblee.imagesearch.prefs"
+        // 앱의 Shared Preferences 파일 이름입니다.
+        const val PREFS_NAME = "sooj"
     }
 
 }

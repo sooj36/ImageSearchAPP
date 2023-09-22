@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.imagesearchapp.R
@@ -26,6 +28,7 @@ class SecondAdapter() :  RecyclerView.Adapter<SecondAdapter.viewHolder>() {
         val collection: TextView = view.findViewById(R.id.item_collection)
         val image_url: ImageView = view.findViewById(R.id.item_image_url)
         val datetime: TextView = view.findViewById(R.id.datetime)
+        val heart : ImageView = view.findViewById(R.id.heart)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): viewHolder {
@@ -51,6 +54,11 @@ class SecondAdapter() :  RecyclerView.Adapter<SecondAdapter.viewHolder>() {
             val item = bookmark[position]
             listener?.onBookmarkClicked(kakaoImage = item)
         }
+
+        //북마크에서는 항상 하트 같이 있음
+        holder.heart.isVisible = true
+
+
     }
 
 

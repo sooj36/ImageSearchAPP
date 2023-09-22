@@ -55,6 +55,9 @@ class FirstFragment : Fragment(), FirstAdapter.OnBookmarkClickListener {
             val query = binding.searchBar.text.toString()
             viewModel.searchImage(query)
 
+            // query 저장
+            Utils.setSaveSearch(requireContext(), query)
+
             //함수구현해서 shared해보기
             Log.d("sooj", "click")
         }
