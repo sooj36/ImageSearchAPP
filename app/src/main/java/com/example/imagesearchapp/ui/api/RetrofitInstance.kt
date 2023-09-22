@@ -25,20 +25,3 @@ object RetrofitInstance {
         retrofit.create(SimpleApi::class.java)
     }
 }
-
-//object RetrofitInstance {
-//    companion object {
-//        private const val BASE_URL = "https://dapi.kakao.com/v2/search/image"
-//        private var INSTANCE : Retrofit? = null
-//
-//        fun getInstance() : Retrofit {
-//            if (INSTANCE == null) {
-//                INSTANCE = Retrofit.Builder()
-//                    .baseUrl(BASE_URL)
-//                    .addConverterFactory(GsonConverterFactory.create())
-//                    .build()
-//            }
-//            return INSTANCE!!
-//        }
-//    }
-//}

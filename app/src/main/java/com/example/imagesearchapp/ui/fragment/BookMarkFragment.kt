@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.imagesearchapp.databinding.FragmentSecondBinding
+import com.example.imagesearchapp.databinding.FragmentBookmarkBinding
 import com.example.imagesearchapp.ui.adapter.BookMarkAdapter
 import com.example.imagesearchapp.ui.model.KakaoImage
 import com.example.imagesearchapp.ui.viewModel.BookMarkViewModel
@@ -20,7 +20,7 @@ class BookMarkFragment : Fragment(),BookMarkAdapter.OnBookmarkClickListener {
     // 바인딩 객체를 null 허용으로
 //    private lateinit var binding: FragmentSecondBinding? = null
     private lateinit var adapter: BookMarkAdapter
-    private lateinit var binding: FragmentSecondBinding
+    private lateinit var binding: FragmentBookmarkBinding
 
 
     override fun onCreateView(
@@ -28,7 +28,7 @@ class BookMarkFragment : Fragment(),BookMarkAdapter.OnBookmarkClickListener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentSecondBinding.inflate(inflater, container, false)
+        binding = FragmentBookmarkBinding.inflate(inflater, container, false)
         return binding.root
     }
 

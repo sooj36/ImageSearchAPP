@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.imagesearchapp.databinding.FragmentFirstBinding
+import com.example.imagesearchapp.databinding.FragmentSearchBinding
 import com.example.imagesearchapp.ui.adapter.SearchAdapter
 import com.example.imagesearchapp.ui.model.KakaoImage
 import com.example.imagesearchapp.ui.repository.Repository
@@ -21,7 +21,7 @@ import com.example.imagesearchapp.ui.viewModel.SearchViewModelFactory
 
 
 class SearchFragment : Fragment(), SearchAdapter.OnBookmarkClickListener {
-    private lateinit var binding: FragmentFirstBinding
+    private lateinit var binding: FragmentSearchBinding
     private lateinit var adapter: SearchAdapter
 
     // Main.kt 의 viewmodel 사용
@@ -33,7 +33,7 @@ class SearchFragment : Fragment(), SearchAdapter.OnBookmarkClickListener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentFirstBinding.inflate(inflater, container, false)
+        binding = FragmentSearchBinding.inflate(inflater, container, false)
         val factory = SearchViewModelFactory(Repository())
         viewModel = ViewModelProvider(this, factory).get(SearchViewModel::class.java)
         return binding.root
