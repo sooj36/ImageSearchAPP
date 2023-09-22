@@ -16,8 +16,6 @@ class BookMarkViewModel() : ViewModel() {
     private val _bookMark : MutableLiveData<List<KakaoImage>?> = MutableLiveData()
     val bookMark : LiveData<List<KakaoImage>?> get() = _bookMark
 
-
-
     fun addBookMark(item: KakaoImage) {
         val currentList = _bookMark.value?.toMutableList() ?: mutableListOf()
         currentList.add(item)

@@ -21,7 +21,7 @@ class BookMarkFragment : Fragment(),BookMarkAdapter.OnBookmarkClickListener {
 //    private lateinit var binding: FragmentSecondBinding? = null
     private lateinit var adapter: BookMarkAdapter
     private lateinit var binding: FragmentBookmarkBinding
-
+    private val viewModel by activityViewModels<BookMarkViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -53,8 +53,7 @@ class BookMarkFragment : Fragment(),BookMarkAdapter.OnBookmarkClickListener {
         }
     }
 
-    //Shared 가져오는 방식
-    private val viewModel by activityViewModels<BookMarkViewModel>()
+
     override fun onBookmarkClicked(kakaoImage: KakaoImage) {
         //북마크 클릭시
         viewModel.removeBookMark(kakaoImage)
