@@ -14,7 +14,7 @@ import com.example.imagesearchapp.R
 import com.example.imagesearchapp.ui.model.KakaoImage
 
 
-class FirstAdapter : RecyclerView.Adapter<FirstAdapter.ViewHolder>() {
+class SearchAdapter : RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
 
     var listener: OnBookmarkClickListener? = null
     interface OnBookmarkClickListener {

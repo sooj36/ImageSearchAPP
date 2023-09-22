@@ -11,21 +11,21 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.imagesearchapp.databinding.FragmentFirstBinding
-import com.example.imagesearchapp.ui.adapter.FirstAdapter
+import com.example.imagesearchapp.ui.adapter.SearchAdapter
 import com.example.imagesearchapp.ui.model.KakaoImage
 import com.example.imagesearchapp.ui.repository.Repository
 import com.example.imagesearchapp.ui.utils.Utils
 import com.example.imagesearchapp.ui.viewModel.BookMarkViewModel
-import com.example.imagesearchapp.ui.viewModel.MainViewModel
-import com.example.imagesearchapp.ui.viewModel.MainViewModelFactory
+import com.example.imagesearchapp.ui.viewModel.SearchViewModel
+import com.example.imagesearchapp.ui.viewModel.SearchViewModelFactory
 
 
-class FirstFragment : Fragment(), FirstAdapter.OnBookmarkClickListener {
+class SearchFragment : Fragment(), SearchAdapter.OnBookmarkClickListener {
     private lateinit var binding: FragmentFirstBinding
-    private lateinit var adapter: FirstAdapter
+    private lateinit var adapter: SearchAdapter
 
     // Main.kt 의 viewmodel 사용
-    private lateinit var viewModel: MainViewModel
+    private lateinit var viewModel: SearchViewModel
     // 데이터를 가지고 있음
 
     override fun onCreateView(
@@ -34,8 +34,8 @@ class FirstFragment : Fragment(), FirstAdapter.OnBookmarkClickListener {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentFirstBinding.inflate(inflater, container, false)
-        val factory = MainViewModelFactory(Repository())
-        viewModel = ViewModelProvider(this, factory).get(MainViewModel::class.java)
+        val factory = SearchViewModelFactory(Repository())
+        viewModel = ViewModelProvider(this, factory).get(SearchViewModel::class.java)
         return binding.root
     }
 
@@ -47,7 +47,7 @@ class FirstFragment : Fragment(), FirstAdapter.OnBookmarkClickListener {
         val saveSearch = Utils.getSaveSearch(requireContext())
         binding.searchBar.setText(saveSearch)
 
-        adapter = FirstAdapter()
+        adapter = SearchAdapter()
         adapter.listener = this
 
         //버튼 찾아 변수 할당
