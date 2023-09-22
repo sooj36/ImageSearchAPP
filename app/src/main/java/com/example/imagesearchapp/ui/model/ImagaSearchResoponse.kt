@@ -16,8 +16,5 @@ data class ImageSearchResponse(
 )
 
 
-
-
-
 //@SerializedName은 JSON 데이터의 필드 이름과 Kotlin 클래스의 속성 이름을 매핑하기 위해 사용
 // JSON 데이터와 Kotlin 클래스 간에 이름이 다른 경우에 사용

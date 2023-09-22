@@ -15,7 +15,6 @@ class Constants {
 
         const val EMPTY_RESULT = "EMPTY_RESULT"
 
-        // 앱의 Shared Preferences 파일 이름입니다.
         const val PREFS_NAME = "sooj"
     }
 
