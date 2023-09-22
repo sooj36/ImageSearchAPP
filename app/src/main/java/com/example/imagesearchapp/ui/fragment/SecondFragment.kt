@@ -6,16 +6,24 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProvider
+import android.widget.Toast
+import androidx.fragment.app.activityViewModels
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.imagesearchapp.databinding.FragmentSecondBinding
-import com.example.imagesearchapp.ui.repository.Repository
+import com.example.imagesearchapp.ui.adapter.SecondAdapter
+import com.example.imagesearchapp.ui.model.KakaoImage
+import com.example.imagesearchapp.ui.viewModel.BookMarkViewModel
 import com.example.imagesearchapp.ui.viewModel.MainViewModel
-import com.example.imagesearchapp.ui.viewModel.MainViewModelFactory
 
 
-class SecondFragment : Fragment() {
+
+class SecondFragment : Fragment(),SecondAdapter.OnBookmarkClickListener {
+
+    // 바인딩 객체를 null 허용으로
+//    private lateinit var binding: FragmentSecondBinding? = null
+    private lateinit var adapter: SecondAdapter
     private lateinit var binding: FragmentSecondBinding
-    private lateinit var viewModel: MainViewModel
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,8 +37,39 @@ class SecondFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val factory = MainViewModelFactory(Repository())
-        viewModel = ViewModelProvider(this, factory)[MainViewModel::class.java]
-        Log.d("sooj", "bookmark")
+        adapter = SecondAdapter()
+        adapter.listener = this
+
+        binding.recyclerview2.layoutManager = GridLayoutManager(view.context, 2)
+        Log.d("sooj", "recyclerview 2")
+
+        // livedata 이용해 viewmodel에서 제공하는 데이터를 관찰, 데이터가 변경될때마다 recyclerview에 새 데이터를 표시
+        viewModel.bookMark.observe(viewLifecycleOwner) { images ->
+            adapter.bookmark.clear()
+            images ?: return@observe
+            adapter.bookmark.addAll(images)
+            adapter.notifyDataSetChanged()
+            Log.d("sooj", "observe $images")
+        }
+    }
+
+    //Shared 가져오는 방식
+    private val viewModel by activityViewModels<BookMarkViewModel>()
+    override fun onBookmarkClicked(kakaoImage: KakaoImage) {
+        //북마크 클릭시
+        viewModel.removeBookMark(kakaoImage)
+        Toast.makeText(context , "북마크가 제거되었습니다", Toast.LENGTH_LONG).show()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
     }
 }
+
+
+
+
+
+
+
+

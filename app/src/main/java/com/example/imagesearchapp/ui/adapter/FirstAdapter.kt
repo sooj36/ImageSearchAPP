@@ -9,12 +9,15 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.imagesearchapp.R
-import com.example.imagesearchapp.databinding.FragmentFirstBinding
-import com.example.imagesearchapp.databinding.ItemBinding
 import com.example.imagesearchapp.ui.model.KakaoImage
-import org.w3c.dom.Text
+
 
 class FirstAdapter : RecyclerView.Adapter<FirstAdapter.ViewHolder>() {
+
+    var listener: OnBookmarkClickListener? = null
+    interface OnBookmarkClickListener {
+        fun onBookmarkClicked(kakaoImage: KakaoImage)
+    }
 
     var list = ArrayList<KakaoImage>()
 
@@ -37,15 +40,22 @@ class FirstAdapter : RecyclerView.Adapter<FirstAdapter.ViewHolder>() {
         holder.sitename.text = list[position].sitename
         holder.collection.text = list[position].collection
         holder.datetime.text = list[position].datetime
-        Log.d("sooj",list[position].image_url)
+        Log.d("sooj", list[position].image_url)
         Glide.with(holder.image_url.context)
             .load(list[position].image_url)
             .into(holder.image_url)
 
+        // 클릭리스너 설정
+        holder.image_url.setOnClickListener {
+            val item = list[position]
+            listener?.onBookmarkClicked(kakaoImage = item)
+        }
     }
+
 
     override fun getItemCount(): Int {
         return list.size
+        Log.d("sooj", "size")
     }
 
 }
