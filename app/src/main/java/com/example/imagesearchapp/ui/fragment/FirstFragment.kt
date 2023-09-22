@@ -14,6 +14,7 @@ import com.example.imagesearchapp.databinding.FragmentFirstBinding
 import com.example.imagesearchapp.ui.adapter.FirstAdapter
 import com.example.imagesearchapp.ui.model.KakaoImage
 import com.example.imagesearchapp.ui.repository.Repository
+import com.example.imagesearchapp.ui.utils.Utils
 import com.example.imagesearchapp.ui.viewModel.BookMarkViewModel
 import com.example.imagesearchapp.ui.viewModel.MainViewModel
 import com.example.imagesearchapp.ui.viewModel.MainViewModelFactory
@@ -21,7 +22,7 @@ import com.example.imagesearchapp.ui.viewModel.MainViewModelFactory
 
 class FirstFragment : Fragment(), FirstAdapter.OnBookmarkClickListener {
     private lateinit var binding: FragmentFirstBinding
-    private lateinit var adapter : FirstAdapter
+    private lateinit var adapter: FirstAdapter
 
     // Main.kt 의 viewmodel 사용
     private lateinit var viewModel: MainViewModel
@@ -41,6 +42,10 @@ class FirstFragment : Fragment(), FirstAdapter.OnBookmarkClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Log.d("sooj", "onViewCreated()")
+
+        //최근 검색어 가져와서 EditText에 설정 !
+        val saveSearch = Utils.getSaveSearch(requireContext())
+        binding.searchBar.setText(saveSearch)
 
         adapter = FirstAdapter()
         adapter.listener = this
@@ -75,14 +80,14 @@ class FirstFragment : Fragment(), FirstAdapter.OnBookmarkClickListener {
         binding.recyclerview1.adapter = adapter
         Log.d("sooj", "recyclerview에 어댑터 연결")
     }
+
     //Shared 가져오는 방식
     private val bookMarkViewModel by activityViewModels<BookMarkViewModel>()
     override fun onBookmarkClicked(kakaoImage: KakaoImage) {
         //북마크 클릭시
         bookMarkViewModel.addBookMark(kakaoImage)
-        Toast.makeText(context , "북마크가 추가되었습니다", Toast.LENGTH_LONG).show()
+        Toast.makeText(context, "북마크가 추가되었습니다", Toast.LENGTH_LONG).show()
     }
-
 
 
 }
