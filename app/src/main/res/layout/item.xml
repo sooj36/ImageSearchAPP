@@ -77,8 +77,8 @@
 
     <ImageView
         android:id="@+id/heart"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:visibility="gone"
         android:src="@drawable/item_heart"
         app:layout_constraintEnd_toEndOf="@id/linearlayout"
