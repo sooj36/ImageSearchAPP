@@ -58,4 +58,19 @@ class FirstAdapter : RecyclerView.Adapter<FirstAdapter.ViewHolder>() {
         Log.d("sooj", "size")
     }
 
+//    override fun onClick(view : View) {
+//        val position = adapterPosition.takeIf { it != RecyclerView.NO_POSITION } ?: return
+//        val item = list[position]
+//
+//        item.isFavorite = !item.isFavorite
+//
+//        if (item.isFavorite) {
+//            (mContext as MainActivity).addLikedItem(item)
+//        } else {
+//            (mContext as MainActivity).removeLikedItem(item)
+//        }
+//
+//        notifyItemChanged(position)
+//    }
+//    }
 }
