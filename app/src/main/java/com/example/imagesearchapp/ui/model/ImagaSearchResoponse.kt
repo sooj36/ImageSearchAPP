@@ -8,8 +8,6 @@ import com.google.gson.annotations.SerializedName
 // 결과는 이 클래스로 받아 옴
 
 data class ImageSearchResponse(
-    @SerializedName("meta")
-    val metaData: MetaData?,
 
     @SerializedName("documents")
     val documents : MutableList<KakaoImage>?

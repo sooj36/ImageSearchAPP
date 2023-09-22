@@ -15,8 +15,6 @@ class SearchViewModel(private val repository: Repository) : ViewModel() {
     private val _searchResult : MutableLiveData<List<KakaoImage>?> = MutableLiveData()
     val searchResult : LiveData<List<KakaoImage>?> get() = _searchResult
 
-
-
     // 검색어를 매개변수로 받도록
     fun searchImage(query: String){
         viewModelScope.launch {
@@ -27,6 +25,4 @@ class SearchViewModel(private val repository: Repository) : ViewModel() {
 
         }
     }
-
-
 }

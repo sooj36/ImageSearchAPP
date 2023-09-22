@@ -67,10 +67,5 @@ class SearchAdapter : RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
                 list[position].isFavorite = true
             }
         }
-
-
     }
-
-
-
 }
