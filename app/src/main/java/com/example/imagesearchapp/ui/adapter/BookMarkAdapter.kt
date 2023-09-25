@@ -12,7 +12,7 @@ import com.bumptech.glide.Glide
 import com.example.imagesearchapp.R
 import com.example.imagesearchapp.ui.model.KakaoImage
 
-class BookMarkAdapter() :  RecyclerView.Adapter<BookMarkAdapter.viewHolder>() {
+class BookMarkAdapter :  RecyclerView.Adapter<BookMarkAdapter.viewHolder>() {
 
     var listener: OnBookmarkClickListener? = null
     interface OnBookmarkClickListener {

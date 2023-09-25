@@ -17,3 +17,6 @@ interface SimpleApi {
         @Query("size") size : Int
     ) : Response<ImageSearchResponse>
 }
+
+// retrofit을 사용하여 웹api 와 통신하기 위한 http 요청 메서드를 정의하는데 사용
+// retrofit은 이 인터페이스를 구현하고, 이 메서드를 호출하여 웹 서버에 http 요청 보내고, 서버에서 반환된 응답 처리

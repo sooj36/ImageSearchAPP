@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.widget.ViewPager2
+import com.example.imagesearchapp.BuildConfig
 import com.example.imagesearchapp.R
 import com.example.imagesearchapp.databinding.ActivityMainBinding
 import com.example.imagesearchapp.ui.adapter.ViewPagerAdapter
@@ -20,6 +21,9 @@ class MainActivity : AppCompatActivity() {
     val repository = Repository()
     val viewModelFactory = SearchViewModelFactory(repository)
 
+    // by lazy == 변수 지연 초기화
+    // viewmodelprovider == 클래스 생성자를 호출하여 뷰모델 생성
+    // .get(SearchViewModel::class.java) == 서치뷰모델 클래스의 인스턴스를 생성+반환
 
     val viewModel by lazy {
         ViewModelProvider(
@@ -41,6 +45,7 @@ class MainActivity : AppCompatActivity() {
         initNavigation()
 
 
+        BuildConfig.API_KEY
 
     }
 

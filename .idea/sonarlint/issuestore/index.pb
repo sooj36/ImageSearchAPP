@@ -11,8 +11,6 @@ F
 app/proguard-rules.pro,9\e\9e08934d811afe28fbc77aaa3c0d747b94348db9
 s
 Capp/src/main/java/com/example/imagesearchapp/ui/model/KakaoImage.kt,8\7\87704053510a29e7ee4c54ec4cc06d435b178408
-q
-Aapp/src/main/java/com/example/imagesearchapp/ui/model/MetaData.kt,f\8\f823063eac13389a0b4c005573c253d1c4e2ddd4
 D
 app/build.gradle.kts,d\2\d2a4383452aad84a18429a5844d31330a012a9e6
 }
@@ -41,3 +39,5 @@ Lapp/src/main/java/com/example/imagesearchapp/ui/viewModel/SearchViewModel.kt,3
 Napp/src/main/java/com/example/imagesearchapp/ui/viewModel/BookMarkViewModel.kt,9\3\933c085c6555b1231e113f62a0cdaf736cf4f0f3
 ƒ
 Sapp/src/main/java/com/example/imagesearchapp/ui/viewModel/SearchViewModelFactory.kt,2\8\28a0ca59ce79b2d1b3532bd0b251f939455f70c5
+9
+	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d

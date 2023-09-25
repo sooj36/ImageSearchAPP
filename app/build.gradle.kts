@@ -1,3 +1,6 @@
+import java.util.Properties
+import java.io.FileInputStream
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -7,6 +10,11 @@ android {
     namespace = "com.example.imagesearchapp"
     compileSdk = 33
 
+    val properties = Properties().apply {
+        load(FileInputStream("${rootDir}/local.properties"))
+    }
+    val apiKey = properties["api_key"] ?: ""
+
     defaultConfig {
         applicationId = "com.example.imagesearchapp"
         minSdk = 24
@@ -15,7 +23,12 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "API_KEY", "\"$apiKey\"")
+
+
     }
+
 
     buildTypes {
         release {
@@ -36,6 +49,7 @@ android {
 
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 }
 
