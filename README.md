@@ -1,5 +1,5 @@
 # ImageSearchAPP
- 이미지 검색 페이지 만들기
+ Kakao 이미지 검색 API 를 활용하여 이미지 검색 페이지 만들기
 
 ## api
 Kotlin & Retrofit 라이브러리
