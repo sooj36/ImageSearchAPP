@@ -1,23 +1,18 @@
 # ImageSearchAPP
- Kakao 이미지 검색 API 를 활용하여 이미지 검색 페이지 만들기
+ Kakao Rest API 를 활용한 이미지 검색 & 북마크 어플
 
-## api
-Kotlin & Retrofit 라이브러리
-1. Kotlin
-2. Retrofit
-3. Gson
-4. Singleton Pattern
-5. interface-based API Declaration
-6. MVVM
-7. ViewModel , LiveData
-8. ViewPager2와 BottomNavigation 연동:
+# 🛠 Tech Stack
+```kotlin
+Kotlin
+Retrofit
+Singleton Pattern
+interface-based API Declaration
+MVVM
+ViewModel , LiveData
+ViewPager2와 BottomNavigation 연동:
+```
 
-ViewPager2를 사용하여 스와이프 가능한 뷰 페이지를 구현합니다.
-initViewPager 메서드에서 ViewPager2와 ViewPagerAdapter를 연결합니다.
-BottomNavigationView와 ViewPager2를 연동하여 탭 선택 시 해당 페이지로 이동하도록 합니다.
+ViewPager2와 BottomNavigationView를 연동하여 스와이프 가능한 뷰 페이지 및 탭 선택을 통한 페이지 전환 기능
+Singleton Pattern으로 전역적으로 접근 가능하게 관리
 
-9. ViewPager2와 BottomNavigation 연동:
-
-ViewPager2를 사용하여 스와이프 가능한 뷰 페이지를 구현합니다.
-initViewPager 메서드에서 ViewPager2와 ViewPagerAdapter를 연결합니다.
-BottomNavigationView와 ViewPager2를 연동하여 탭 선택 시 해당 페이지로 이동하도록 합니다.
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fsooj36%2FImageSearchAPP&count_bg=%232D4F8C&title_bg=%23C0BCBC&icon=&icon_color=%23E7E7E7&title=hi&edge_flat=false)](https://hits.seeyoufarm.com)    
