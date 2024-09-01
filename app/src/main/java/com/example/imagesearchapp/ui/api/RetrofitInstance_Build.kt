@@ -13,7 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 // object 사용하여 싱글톤 패턴
 
 
-object RetrofitInstance {
+object RetrofitInstance_Build {
     private val retrofit by lazy {
         Retrofit.Builder()
             .baseUrl(BASE_URL)
@@ -21,7 +21,7 @@ object RetrofitInstance {
             .build()
     }
 
-    val api : SimpleApi by lazy {
-        retrofit.create(SimpleApi::class.java)
+    val api : KakaoSearchApi by lazy {
+        retrofit.create(KakaoSearchApi::class.java)
     }
 }

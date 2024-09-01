@@ -1,7 +1,7 @@
 # ImageSearchAPP
  Kakao Rest API 를 활용한 이미지 검색 & 북마크 어플
 
-# 🛠 Tech Stack
+# 🛠 Tech Stack 🛠
 ```kotlin
 Kotlin
 Retrofit
@@ -15,6 +15,7 @@ ViewModel , LiveData
 - SharedPreferences 를 활용하여 북마크 기능
 - Retrofit 라이브러리를 통해 안드로이드에서의 HTTP 통신을 구현
 - MVVM을 적용하여 한 액티비티에 몰아 넣었던 기능들 분산시켜 유지보수 용이
+- DI 적용하여 의존성 분리
 
 
 

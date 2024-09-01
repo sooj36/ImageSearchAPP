@@ -9,7 +9,9 @@ import com.example.imagesearchapp.ui.model.KakaoImage
 import com.example.imagesearchapp.ui.repository.Repository
 import kotlinx.coroutines.launch
 
-class SearchViewModel(private val repository: Repository) : ViewModel() {
+class SearchViewModel(
+    private val repository: Repository
+) : ViewModel() {
 
     // LiveData == 데이터 변경 관찰 UI에 바인딩
     private val _searchResult : MutableLiveData<List<KakaoImage>?> = MutableLiveData()
